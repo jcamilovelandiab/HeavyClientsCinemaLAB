@@ -7,12 +7,6 @@ package edu.eci.arsw.cinema.model;
 
 import java.util.List;
 
-/**
- *
- * @author cristian
- */
-
-
 public class Cinema {
     private String name;
     private List<CinemaFunction> functions; 

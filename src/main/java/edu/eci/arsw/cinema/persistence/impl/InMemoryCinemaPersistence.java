@@ -21,10 +21,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author cristian
- */
 
 @Component("inMemoryCinemaPersistence")
 public class InMemoryCinemaPersistence implements CinemaPersitence {

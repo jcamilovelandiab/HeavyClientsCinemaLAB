@@ -12,10 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- *
- * @author cristian
- */
 public class CinemaFunction {
     
     private Movie movie;

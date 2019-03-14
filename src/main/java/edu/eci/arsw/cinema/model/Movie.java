@@ -5,10 +5,6 @@
  */
 package edu.eci.arsw.cinema.model;
 
-/**
- *
- * @author cristian
- */
 public class Movie {
     private String name;
     private String genre;

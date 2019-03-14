@@ -10,10 +10,7 @@ import edu.eci.arsw.cinema.model.CinemaFunction;
 import java.util.List;
 import java.util.Set;
 
-/**
- *
- * @author cristian
- */
+
 public interface CinemaPersitence {
     
     /**

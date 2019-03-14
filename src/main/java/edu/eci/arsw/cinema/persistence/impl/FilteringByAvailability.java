@@ -13,10 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author 2129082
- */
 
 @Component("filteringByAvailability")
 public class FilteringByAvailability implements TypeFiltro{

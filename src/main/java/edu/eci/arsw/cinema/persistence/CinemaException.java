@@ -5,10 +5,7 @@
  */
 package edu.eci.arsw.cinema.persistence;
 
-/**
- *
- * @author cristian
- */
+
 public class CinemaException extends Exception{
 
     public CinemaException(String message) {

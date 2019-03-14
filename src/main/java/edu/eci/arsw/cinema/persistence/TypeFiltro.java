@@ -11,10 +11,6 @@ import edu.eci.arsw.cinema.model.Movie;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author 2129082
- */
 public interface TypeFiltro{
     
     /**

@@ -20,10 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author 2129082
- */
+
 @Component("filteredByGender")
 public class FilteredByGender  implements TypeFiltro{
     
