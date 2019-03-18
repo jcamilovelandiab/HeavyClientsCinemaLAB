@@ -30,23 +30,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author cristian
- */
 
 @RestController
+@RequestMapping(value = "/cinemas")
 public class CinemaAPIController {
 
 	@Autowired
 	CinemaServices cinemaServices;
 
-	 @GetMapping("/cinema")
-    public String cinema() {
-		 return "HELLOOOOO, WELCOME!";
-    }
-
-	@GetMapping("/cinemas")
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> getAllCinemas(){
 		try {
 			return new ResponseEntity<>(cinemaServices.getAllCinemas(), HttpStatus.ACCEPTED);
@@ -56,10 +48,10 @@ public class CinemaAPIController {
 		}
 	}
 
-	@GetMapping("/cinemas/{name}")
-	public ResponseEntity<?> getCinemaByName(@PathVariable String name) {
+	@RequestMapping(value = "/{cinemaname}",method = RequestMethod.GET)
+	public ResponseEntity<?> getCinemaByName(@PathVariable String cinemaname) {
 		try {
-			return new ResponseEntity<>(cinemaServices.getCinemaByName(name), HttpStatus.ACCEPTED);
+			return new ResponseEntity<>(cinemaServices.getCinemaByName(cinemaname), HttpStatus.ACCEPTED);
 		} catch (CinemaException ex) {
 			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
 			return new ResponseEntity<>("Error, the cinema doesn't exist", HttpStatus.NOT_FOUND);
@@ -69,21 +61,21 @@ public class CinemaAPIController {
 		}
 	}
 
-	@GetMapping("/cinemas/{name}/{date}")
-	public ResponseEntity<?> getFunctionsbyCinemaAndDate(@PathVariable String name, @PathVariable String date) {
+	@RequestMapping(value = "/{cinemaname}/{date}", method = RequestMethod.GET)
+	public ResponseEntity<?> getFunctionsbyCinemaAndDate(@PathVariable String cinemaname, @PathVariable String date) {
 		try {
-			return new ResponseEntity<>(cinemaServices.getFunctionsbyCinemaAndDate(name, date), HttpStatus.ACCEPTED);
+			return new ResponseEntity<>(cinemaServices.getFunctionsbyCinemaAndDate(cinemaname, date), HttpStatus.ACCEPTED);
 		} catch (Exception ex) {
 			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
 			return new ResponseEntity<>("Error, the cinema does not exist", HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@GetMapping("/cinemas/{name}/{date}/{moviename}")
-	public ResponseEntity<?> getCinemaByCinemaAndDate(@PathVariable String name, @PathVariable String date,
+	@RequestMapping(value = "/{cinemaname}/{date}/{moviename}", method = RequestMethod.GET)
+	public ResponseEntity<?> getCinemaByCinemaAndDate(@PathVariable String cinemaname, @PathVariable String date,
 			@PathVariable String moviename) {
 		try {
-			return new ResponseEntity<>(cinemaServices.getCinemaFunctionbyCinemaDateAndMovie(name, date, moviename),
+			return new ResponseEntity<>(cinemaServices.getCinemaFunctionbyCinemaDateAndMovie(cinemaname, date, moviename),
 					HttpStatus.ACCEPTED);
 		} catch (Exception ex) {
 			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,11 +95,10 @@ public class CinemaAPIController {
 	}
 
 	
-	@RequestMapping(value = "/cinemas/{name}", method = RequestMethod.PUT)	
-	public ResponseEntity<?> setCinemaFuction(@PathVariable String name , @RequestBody CinemaFunction cinemaFunction ) {
+	@RequestMapping(value = "/{cinemaname}", method = RequestMethod.PUT)	
+	public ResponseEntity<?> setCinemaFuction(@PathVariable String cinemaname , @RequestBody CinemaFunction cinemaFunction ) {
 		try {
-			System.out.println("Entremos");
-			cinemaServices.setCinemaFuction(name,cinemaFunction);
+			cinemaServices.setCinemaFuction(cinemaname,cinemaFunction);
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (Exception ex) {
 			Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
