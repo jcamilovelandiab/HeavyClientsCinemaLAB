@@ -6,10 +6,21 @@ app2=(function(){
 				$("#tableCine > tr").remove();
 				//console.log(name);
 				for(var i = 0; i < cine.functions.length; i++){
-					console.log(cine.functions[i].movie.name);
+					console.log(cine);
+					
+					var seats = cine.functions[i].seats;
+					var nSeats = 0;
+					for(var a=0; a<seats.length; a++){
+						for(var b=0; b<seats[a].length; b++){
+							if(seats[a][b]==true){
+								nSeats++;
+							}
+						}
+					}
+					
 					table.append('<tr>' +
 									"<td>"+cine.functions[i].movie.name+"</td>" +
-									"<td>"+cine.functions[i].seats.length+"</td>" +
+									"<td>"+nSeats+"</td>" +
 									"<td>"+cine.functions[i].date+"</td>"+
 	                                "<td>"+
 	                                	'<button type="button" class="btn btn-danger" '+
@@ -56,7 +67,3 @@ app2=(function(){
 	
 	}	
 })();
-
-//'<button type="button" class="btn btn-danger" '+
-//'onclick="getFunctionsbyCinema('+cine.name+')" '+
-//'data-toggle="modal" data-target="#modalSeatsFunction">See</button>'+"</td>"+

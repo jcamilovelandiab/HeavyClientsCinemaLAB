@@ -75,7 +75,8 @@ public class CinemaFunction {
         int countEmptySeat = 0;
         for(List<AtomicBoolean> listaBoolean  : seats){
             for(AtomicBoolean emptySeat  : listaBoolean){
-                if(emptySeat.get()){
+            	boolean f = emptySeat.get();
+                if(f){
                     countEmptySeat++;
                 }
             }            
