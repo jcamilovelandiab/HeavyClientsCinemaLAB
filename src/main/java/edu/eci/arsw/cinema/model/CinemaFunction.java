@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CinemaFunction {
@@ -48,9 +49,18 @@ public class CinemaFunction {
         //7x12
         for (int i=0;i<7;i++){
             List<AtomicBoolean> row= new ArrayList<>(Arrays.asList(new AtomicBoolean[12]));
-            Collections.fill(row, new AtomicBoolean(true));
+            for(int j=0; j<12; j++) {
+            	Random r = new Random();
+            	if(r.nextInt()%2==0) {
+            		row.set(j, new AtomicBoolean(true));
+            	}else {
+            		row.set(j, new AtomicBoolean(false));
+            	}
+            }
+            //Collections.fill(row, new AtomicBoolean(true));
             this.seats.add(row);
         }
+
     }
     
     public void buyTicket(int row,int col) throws CinemaException{
