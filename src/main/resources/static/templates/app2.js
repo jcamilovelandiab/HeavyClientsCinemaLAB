@@ -24,7 +24,7 @@ app2=(function(){
 									"<td>"+cine.functions[i].date+"</td>"+
 	                                "<td>"+
 	                                	'<button type="button" class="btn btn-danger" '+
-	                                	'onclick="app2.getSeatsFunctionbyCinema('+"'"+cine.name+" - "+cine.functions[i].movie.name+"'"+')"'+
+	                                	'onclick="app2.getSeatsFunctionbyCinema('+"'"+cine.name+" / "+cine.functions[i].movie.name+" / "+cine.functions[i].date+"'"+')"'+
 	                                	'data-toggle="modal" data-target="#modalSeatsFunction">See</button>'+
 	                                "</td>"+
 	                                //'<td style="display: none; >"'+cine.functions[i].seats+
@@ -36,7 +36,7 @@ app2=(function(){
 	
 		getSeatsFunctionbyCinema:function(name){
 			$("#cinemaFunctionName").html("<em>"+name+"</em>");
-			var t=name.split(" - ");
+			var t=name.split(" / ");
 			var cinemaname=t[0] ,movie = t[1];
 
 	        return apiclient.getCinemaByName(cinemaname, function(cine){
